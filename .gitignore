@@ -22,6 +22,9 @@
 *.la
 *.lo
 
+# Library include exception
+!lib/libraylib.a
+
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so
@@ -53,3 +56,6 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# build
+build

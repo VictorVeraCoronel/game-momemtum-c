@@ -1,0 +1,17 @@
+{
+    "entity_type" : "player",
+    "running_force": 6000.0,
+    "jumping_force": 1000.0,
+    "wall_jumping_force" : 400.0,
+    "air_movement_force": 1000.0,
+    "hp" : 2.0,
+    "sprite_id" : 0,
+    "n_animation_frames" : 4,
+    "anim_speed" : 0.25,
+    "sprite_width" : 128,
+    "sprite_height" : 256,
+    "width": 128,
+    "height": 256,
+    "mass":1
+
+}

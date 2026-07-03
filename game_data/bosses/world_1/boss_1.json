@@ -1,0 +1,17 @@
+{
+    "ai_archetype" : "PATROLLER",
+    "aggro_range" : 200,
+    "follow_speed" : 64,
+    "patrol_speed" : 4000,
+    "entity_type" : "lurker",
+    "hp" : 1.0,
+    "sprite_id" : 1,
+    "n_animation_frames" : 8,
+    "anim_speed" : 0.1,
+    "sprite_width" : 128,
+    "sprite_height" : 128,
+    "width": 128,
+    "height": 128,
+    "mass":1
+
+}
