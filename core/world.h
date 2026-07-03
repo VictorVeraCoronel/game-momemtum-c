@@ -4,11 +4,14 @@
 #include "custom_types.h"
 
 typedef struct {
-
+    //--------------------------------------------------
     // ENTITY CONTROL
+    //--------------------------------------------------
+    bool active_entities[MAX_ENTITIES];
+
 
     //--------------------------------------------------
-    // COMPONENTS
+    // BASE COMPONENTS
     //--------------------------------------------------
     Render renders[MAX_ENTITIES];
     Motion motions[MAX_ENTITIES];
@@ -20,6 +23,15 @@ typedef struct {
     Animation animations[MAX_ENTITIES];
     Health healths[MAX_ENTITIES];
 
+
+    //--------------------------------------------------
+    // EVENT COMPONENTS
+    //--------------------------------------------------
+    ImpulseRequest impulse_requests[MAX_ENTITIES];
+    TeleportRequest teleport_requests[MAX_ENTITIES];
+    DamageRequest damage_requests[MAX_ENTITIES];
+
+
     //--------------------------------------------------
     // ASSET REPOSITORIES
     //--------------------------------------------------
@@ -28,10 +40,12 @@ typedef struct {
     AssetRepository uis[MAX_ASSETS];
     AssetRepository wallpapers[MAX_ASSETS];
 
+
     //--------------------------------------------------
     // WORLD STATE AND SCREEN
     //--------------------------------------------------
     Level current_level;
+    float gravity;
 
 
 } World;

@@ -14,7 +14,6 @@ typedef struct {
 
 typedef struct {
     Vector2 velocity;
-    Vector2 aceleration;
     uint8_t mass;
 
 } Motion;
@@ -66,6 +65,7 @@ typedef struct {
 
 typedef struct {
     float timer;
+    float speed;
     uint8_t n_frames;
     uint8_t current_frame;
     AnimState state;
@@ -79,11 +79,18 @@ typedef struct {
 
 typedef struct {
     Vector2 target_position;
+    bool pending;
 
-} MoveRequest;
+} TeleportRequest;
 
 typedef struct {
     uint8_t amount;
-    uint8_t source_id;
+    bool pending;
 
 } DamageRequest;
+
+typedef struct {
+    Vector2 acceleration;
+    bool pending;
+
+} ImpulseRequest;
