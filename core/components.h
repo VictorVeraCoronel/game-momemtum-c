@@ -1,7 +1,11 @@
 #pragma once
 #include "enum_types.h"
 #include "raylib.h"
+#include <stdio.h>
 
+//------------------------------------------
+// BASE COMPONENTS
+//------------------------------------------
 typedef struct {
     Vector2 position;
     Vector2 scale;
@@ -68,3 +72,18 @@ typedef struct {
     AnimDirection direction;
 
 } Animation;
+
+//------------------------------------------
+// EVENT COMPONENTS
+//------------------------------------------
+
+typedef struct {
+    Vector2 target_position;
+
+} MoveRequest;
+
+typedef struct {
+    uint8_t amount;
+    uint8_t source_id;
+
+} DamageRequest;
