@@ -1,2 +1,2 @@
-# game-momemtum-c
-A pure C 2D platformer combining Mario's precision with Rayman's speed and fluid momentum.
+# MOMENTUM_C
+MOMENTUM_C is a 2D precision platformer inspired by the classic mechanics of Super Mario Bros and the fluid inertia of Rayman Legends.
