@@ -9,8 +9,8 @@ void Input_Update(World* world, float dt){
         if(!world->active_entities[i]) continue;
 
         // Useful data references
-        Input* p_input = &world->inputs[i];
-        float* horizontal_lock = &world->inputs[i].horizontal_lock_timer;
+        Input* p_input = &inputs[i];
+        float* horizontal_lock = &inputs[i].horizontal_lock_timer;
 
 
         // RESET PREVIOUS FRAME INPUTS

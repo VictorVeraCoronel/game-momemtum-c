@@ -1,7 +1,7 @@
 #include "camera.h"
 #include <math.h>
 
-void RenderCamera_Update(World* world, Camera2D *camera, float dt){
+void Camera_Update(World* world, Camera2D *camera, float dt){
 
     //We create a Lerp factor.
     const float follow_slower = 0.13f;
@@ -18,7 +18,7 @@ void RenderCamera_Update(World* world, Camera2D *camera, float dt){
 
 }
 
-void RenderCamera_InitSystem(World* world, Camera2D *camera){
+void Camera_InitSystem(World* world, Camera2D *camera){
 
     const Vector2* p_position = &world->transforms[0].position;
 

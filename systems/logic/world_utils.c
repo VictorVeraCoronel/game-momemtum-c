@@ -9,9 +9,9 @@ uint16_t GetClosestPlayerIndex(const World* world, Vector2 entity_position){
         if (!world->active_entities[p]) continue; // Only iterate active players
 
         const Vector2 player_position = world->transforms[p].position;
-        float dx = player_position.x - entity_position.x;
-        float dy = player_position.y - entity_position.y;
-        float dist_sq = (dx * dx) + (dy * dy);// The real formula is Pythagoras using sqrt. We are not using sqrt to increase performance.
+        const float dx = player_position.x - entity_position.x;
+        const float dy = player_position.y - entity_position.y;
+        const float dist_sq = (dx * dx) + (dy * dy);// The real formula is Pythagoras using sqrt. We are not using sqrt to increase performance.
 
         if (dist_sq < min_distance_squared) {
             min_distance_squared = dist_sq;
@@ -28,10 +28,10 @@ uint16_t GetTileIndexAtPosition(float pixel_x, float pixel_y, Level* level) {
     if (pixel_x < 0.0f || pixel_y < 0.0f) return 0;
 
     // We determine tile cells using the pixels and tile size
-    int cell_x = (int)(pixel_x) / TILE_SIZE;
-    int cell_y = (int)(pixel_y) / TILE_SIZE;
-    int width = level->width;
-    int height = level->height;
+    const int cell_x = (int)(pixel_x) / TILE_SIZE;
+    const int cell_y = (int)(pixel_y) / TILE_SIZE;
+    const int width = level->width;
+    const int height = level->height;
 
     // Security check for out of bounds
     if (cell_x >= width || cell_y >= height) {

@@ -6,23 +6,23 @@
 void AI_Update(World* world){
 
     // Useful data references
-    bool* active = world->active_entities;
-    Transform2D* transforms = world->transforms;
+    const bool* active = world->active_entities;
+    const Transform2D* transforms = world->transforms;
     Motion* motions = world->motions;
-    Locomotion* locomotions = world->locomotions;
-    AI* ais = world->ais;
-    Collider* colliders = world->colliders;
+    const Locomotion* locomotions = world->locomotions;
+    const AI* ais = world->ais;
+    const Collider* colliders = world->colliders;
     Level* level = &world->current_level;
 
     for (int i = MAX_PLAYERS; i < MAX_ENTITIES; i++) {
         if (!active[i]) continue; //Performance check
 
         // Useful data references
-        Transform2D* transform = &transforms[i];
-        AI* ai = &ais[i];
+        const Transform2D* transform = &transforms[i];
+        const AI* ai = &ais[i];
         Motion* motion = &motions[i];
-        Locomotion* locomotion = &locomotions[i];
-        Collider* collider = &colliders[i];
+        const Locomotion* locomotion = &locomotions[i];
+        const Collider* collider = &colliders[i];
 
         // Useful consts
         const Vector2 ai_position = transform->position;
@@ -48,7 +48,7 @@ void AI_Update(World* world){
 
             case AI_PATROL:{
 
-                float time = GetTime();
+                const float time = GetTime();
                 int8_t force_sign = 1;
 
                 // DECIDE DIRECTION OF MOVEMENT BASED ON TIME
@@ -58,7 +58,7 @@ void AI_Update(World* world){
                     force_sign = -1;
                 }
 
-                float horizontal_acceleration = force_sign * ai_patrol_speed;
+                const float horizontal_acceleration = force_sign * ai_patrol_speed;
                 Vector2 next_position;
 
 

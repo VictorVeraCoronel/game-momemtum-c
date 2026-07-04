@@ -11,7 +11,7 @@ void Physics_Update(World* world, float dt){
     Input* inputs = world->inputs;
     ImpulseRequest* impulses = world->impulse_requests;
     TeleportRequest* teleports = world->teleport_requests;
-    bool* active  = world->active_entities;
+    const bool* active  = world->active_entities;
 
     for(int i = 0; i < MAX_ENTITIES; i++){
         // Security check
@@ -190,7 +190,7 @@ void Physics_Update(World* world, float dt){
     // PLAYER AND ENEMY COLLISIONS
     //-------------------------------------------------------------
     DamageRequest* damage_requests = world->damage_requests;
-    Locomotion* locomotions = world->locomotions;
+    const Locomotion* locomotions = world->locomotions;
     Health* healths = world->healths;
 
 
@@ -206,7 +206,7 @@ void Physics_Update(World* world, float dt){
             const Vector2 player_vel = motions[i].velocity;
             const uint16_t player_jumping_force = locomotions[i].jumping_force;
             const Vector2 enemy_pos = transforms[j].position;
-            const Vector2 enemy_size = {colliders[j].rect.width, colliders[j].rect.height};
+            //const Vector2 enemy_size = {colliders[j].rect.width, colliders[j].rect.height};
             const uint16_t enemy_knockback_force = locomotions[j].knockback_force;
 
             // Update rectangle positions
@@ -220,9 +220,9 @@ void Physics_Update(World* world, float dt){
 
             if(player_vel.y > 0.0f){
 
-                float offset = 6.0f;
-                bool jumping_on_head = (player_pos.y + player_size.y) < (enemy_pos.y + offset);
-                bool collision_detected = CheckCollisionRecs(player_rec, enemy_rec);
+                const float offset = 6.0f;
+                const bool jumping_on_head = (player_pos.y + player_size.y) < (enemy_pos.y + offset);
+                const bool collision_detected = CheckCollisionRecs(player_rec, enemy_rec);
 
                 if(jumping_on_head && collision_detected && damage_requests[j].amount == 0){
                     damage_requests[j].amount += 1;

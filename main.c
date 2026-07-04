@@ -5,9 +5,9 @@
 #include "./systems/logic/input.h"
 #include "./systems/logic/animation.h"
 #include "systems/logic/ai.h"
+#include "./systems/logic//camera.h"
 
 #include "./systems/render/core.h"
-#include "./systems/render/camera.h"
 
 #include "core/custom_types.h"
 
@@ -29,7 +29,7 @@ int main(){
 
     // GRAPHIC INITIALIZATION
     InitRaylibWindow();
-    Camera2D camera = {0, 0, 0, 0, 0, 0};
+    Camera2D camera = {0};//{0, 0, 0, 0, 0, 0};
     //VirtualScreen virtual_screen = LoadVirtualScreen(1920, 1080, 1920, 1080);
 
     // LOGIC INITIALIZATION
@@ -38,7 +38,7 @@ int main(){
 
     VirtualScreen virtual_screen = {};
 
-    RenderCamera_InitSystem(world, &camera);
+    Camera_InitSystem(world, &camera);
     const float dt = 1.0f / 144.0f;
     float acumulador = 0.0f;
 
@@ -54,19 +54,19 @@ int main(){
 
         // FIXED LOGIC LOOP (144 HZ)
         while (acumulador >= dt) {
-            Input_Update(world->inputs, dt);
+            Input_Update(world, dt);
             Animation_Update(world, dt);
             AI_Update(world);
             Gameplay_Update(world, dt);
             Physics_Update(world, dt);
-            RenderCamera_Update(world, &camera, dt);
+            Camera_Update(world, &camera, dt);
 
 
             acumulador -= dt;
         }
 
         // FRAME RENDER
-        RenderCore_Update(world, &camera, virtual_screen);
+        RenderCore_Update(world, &camera, &virtual_screen);
 
 
     }
