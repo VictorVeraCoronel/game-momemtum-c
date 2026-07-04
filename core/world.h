@@ -15,6 +15,7 @@ typedef struct {
     //--------------------------------------------------
     Render renders[MAX_ENTITIES];
     Motion motions[MAX_ENTITIES];
+    Locomotion locomotions[MAX_ENTITIES];
     Collider colliders[MAX_ENTITIES];
     Transform2D transforms[MAX_ENTITIES];
     AudioSource audio_sources[MAX_ENTITIES];

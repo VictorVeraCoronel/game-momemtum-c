@@ -15,8 +15,20 @@ typedef struct {
 typedef struct {
     Vector2 velocity;
     uint8_t mass;
+    bool is_grounded;
+    WallCollision wall_collision;
 
 } Motion;
+
+typedef struct{
+    uint16_t jumping_force;
+    uint16_t wall_jumping_force;
+    uint16_t running_force;
+    uint16_t air_movement_force;
+    uint16_t knockback_force;
+
+
+} Locomotion;
 
 typedef struct {
     Rectangle rect;
@@ -33,6 +45,7 @@ typedef struct {
 } Render;
 
 typedef struct {
+    float immune_timer;
     uint8_t current;
     uint8_t max;
 
@@ -48,6 +61,7 @@ typedef struct {
 
 typedef struct {
     float horizontal_lock_timer;
+    float coyote_timer;
     MoveIntent move_intent;
     bool jump_pressed;
     bool jump_released;
